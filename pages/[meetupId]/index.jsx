@@ -28,7 +28,7 @@ export async function getStaticPaths(){
     const meetups = await meeetupsCollection.find({},{_id:1}).toArray();
     client.close();
     return {
-        fallback: false,
+        fallback: "blocking",  // we can set 'blocking' or true  will generate new meetup and will not show 404 page any more.
         paths: meetups.map((meetup) => ({
             params: {meetupId: meetup._id.toString()},
         })),
