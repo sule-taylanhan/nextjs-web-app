@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import Card from '../ui/Card.js';
 import classes from './MeetupItem.module.css';
 import { useRouter } from 'next/router.js';
+import Image from 'next/image.js';
 
 function MeetupItem(props) {
   const router = useRouter()
