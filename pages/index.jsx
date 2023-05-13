@@ -43,6 +43,7 @@ const db = client.db();
 const meeetupsCollection = db.collection('nextApp'); 
 
 const meetups = await meeetupsCollection.find().toArray();
+// console.log(meetups);
 client.close();
     return {   // we always need to return an object
         // if data does not change frequently we can use like PERSONAL BLOG ,BUT if data change frequebtly will add one more props into return stattement
@@ -58,3 +59,4 @@ client.close();
     };
 }
 export default HomePage;
+
