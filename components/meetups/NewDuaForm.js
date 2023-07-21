@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
-import Card from '../ui/Card.js';
-import classes from './NewMeetupForm.module.css';
+import GoDuaDetails from '../ui/GoDuaDetails.js';
+import classes from './NewDuaForm.module.css';
 
 function NewMeetupForm(props) {
   const titleInputRef = useRef();
@@ -28,14 +28,14 @@ function NewMeetupForm(props) {
   }
 
   return (
-    <Card>
+    <GoDuaDetails>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor='title'>Dua Title</label>
           <input type='text' required id='title' ref={titleInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='image'>Writing Arabe</label>
+          <label htmlFor='image'>Dua Image</label>
           <input type='url' required id='image' ref={imageInputRef} />
         </div>
         <div className={classes.control}>
@@ -55,7 +55,7 @@ function NewMeetupForm(props) {
           <button>Add Dua</button>
         </div>
       </form>
-    </Card>
+    </GoDuaDetails>
   );
 }
 
