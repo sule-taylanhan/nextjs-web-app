@@ -21,7 +21,7 @@ function NewMeetupPage(){
    return (
     <Fragment>
       <Head>
-         <title>Add A New Next Meetup</title>
+         <title>Nextjs Application</title>
          <meta name="description" content="Find a instructors, teachers, mentor, course,class,english,free,online, website,bootcamp, mentoring" />
       </Head>
     <NewMeetupForm  onAddMeetup={addMeetupHandler}/>
