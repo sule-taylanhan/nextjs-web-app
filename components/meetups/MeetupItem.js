@@ -12,7 +12,7 @@ function MeetupItem(props) {
     router.push("/" + props.id) // we need to defined meetupId based on new details meetups
   }
   function counterHandler() {
-    let countAmount = 10;
+    let countAmount = 130;
     if (count < countAmount) {
       setCount(count + 1);
     }
