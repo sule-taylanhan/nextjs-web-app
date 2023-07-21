@@ -25,7 +25,7 @@ function HomePage(props) {
         <>
         <Fragment>
             <Head>
-                <title>Next Meetup</title>
+                <title>Nextjs web application</title>
                 <meta name="description" content="Find a instructors, teachers, mentor, course,class,english,free,online, website,bootcamp, mentoring" />
             </Head>
         </Fragment><MeetupList meetups={props.meetups} />
