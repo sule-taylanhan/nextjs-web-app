@@ -11,12 +11,12 @@ function MeetupItem(props) {
   function showDetailsHandler(){
     router.push("/" + props.id) // we need to defined meetupId based on new details meetups
   }
-  function counterHandler() {
-    let countAmount = 130;
-    if (count < countAmount) {
+  const  counterHandler  = () => {
+    let countAmount;
       setCount(count + 1);
-    }
-    // router.push("/" + props.id) // we need to defined meetupId based on new details meetups
+  };
+  const  handleReset = () => {
+      setCount(0);
   }
   const progressStyles = {
     '--progress': count,
@@ -34,8 +34,11 @@ function MeetupItem(props) {
           <address>{props.address}</address>
         </div>
         <div  className={`${classes.progressButton}`}  onClick={counterHandler} style={progressStyles}>
-      <span>{count}%</span>
-    </div>
+      <span>Count:{count}</span> 
+        </div>
+        <div  className={`${classes.progressButton}`}  onClick={handleReset} style={progressStyles}>
+      <span>Reset</span>
+        </div>
         <div className={classes.actions}>
           <button  onClick={showDetailsHandler}>Show Details</button>
         </div>
