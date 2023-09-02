@@ -3,13 +3,21 @@ import Card from '../ui/Card.js';
 import classes from './MeetupItem.module.css';
 import { useRouter } from 'next/router.js';
 import Image from 'next/image.js';
+import { useState } from 'react';
 
 function MeetupItem(props) {
-  const router = useRouter()
-  function showDetailsHandler(){
-    router.push("/" + props.id) // we need to defined meetupId based on new details meetups
+  const router = useRouter();
+  const [password, setPassword] = useState('');
+  const [showDetails, setShowDetails] = useState(false);
 
+  function showDetailsHandler() {
+    if (password === 'test') { // Replace 'test' with your desired password
+      setShowDetails(true);
+    } else {
+      alert('Incorrect password. Details cannot be shown.');
+    }
   }
+
   return (
     <li className={classes.item}>
       <Card>
@@ -21,7 +29,19 @@ function MeetupItem(props) {
           <address>{props.address}</address>
         </div>
         <div className={classes.actions}>
-          <button onClick={showDetailsHandler}>Show Details</button>
+          {!showDetails ? (
+            <>
+              <input
+                type="password"
+                placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button onClick={showDetailsHandler}>Show Details</button>
+            </>
+          ) : (
+            <button onClick={() => router.push("/" + props.id)}>Go to Details</button>
+          )}
         </div>
       </Card>
     </li>
