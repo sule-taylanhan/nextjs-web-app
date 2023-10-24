@@ -44,3 +44,29 @@
   .actions button:active {
     background-color: #ffe2ed;
   }
+  
+  .progressButton {
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .progressButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: conic-gradient(blue 0%, blue calc(1% * var(--progress)), transparent calc(1% * var(--progress)), transparent 100%);
+    transform: rotate(-90deg);
+    transition: var(--progress-transition);
+  }
+  
+  .progressButton span {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  

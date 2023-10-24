@@ -1,7 +1,6 @@
 import { useRef } from 'react';
-
 import Card from '../ui/Card.js';
-import classes from './NewMeetupForm.module.css';
+import classes from './NewMeetupFormImage.module.css';
 
 function NewMeetupForm(props) {
   const titleInputRef = useRef();
@@ -13,7 +12,7 @@ function NewMeetupForm(props) {
     event.preventDefault();
 
     const enteredTitle = titleInputRef.current.value;
-    const enteredImage = imageInputRef.current.value;
+    const enteredImage = imageInputRef.current.files[0];
     const enteredAddress = addressInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
 
@@ -35,8 +34,8 @@ function NewMeetupForm(props) {
           <input type='text' required id='title' ref={titleInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='image'>Writing Arabe</label>
-          <input type='url' required id='image' ref={imageInputRef} />
+          <label htmlFor='image'>Reading Arabic</label>
+          <input type='file' accept='image/*' required id='image' ref={imageInputRef} />
         </div>
         <div className={classes.control}>
           <label htmlFor='address'>Dua Meaning</label>

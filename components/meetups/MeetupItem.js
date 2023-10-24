@@ -6,19 +6,24 @@ import Image from 'next/image.js';
 import { useState } from 'react';
 
 function MeetupItem(props) {
-  const router = useRouter();
-  const [password, setPassword] = useState('');
-  const [showDetails, setShowDetails] = useState(false);
-
-  function showDetailsHandler() {
-    if (password === 'recep') { // Replace 'test' with your desired password
-      setShowDetails(true);
-    } else {
-      alert('Incorrect password. Details cannot be shown.');
-    }
+  const [count, setCount] = useState(0);
+  const router = useRouter()
+  function showDetailsHandler(){
+    router.push("/" + props.id) // we need to defined meetupId based on new details meetups
   }
+  const  counterHandler  = () => {
+    let countAmount;
+      setCount(count + 1);
+  };
+  const  handleReset = () => {
+      setCount(0);
+  }
+  const progressStyles = {
+    '--progress': count,
+    '--progress-transition': 'transform 0.2s ease',
+  };
 
-  return (
+   return (
     <li className={classes.item}>
       <Card>
         <div className={classes.image}>
@@ -28,20 +33,14 @@ function MeetupItem(props) {
           <h3>{props.title}</h3>
           <address>{props.address}</address>
         </div>
+        <div  className={`${classes.progressButton}`}  onClick={counterHandler} style={progressStyles}>
+      <span>Count:{count}</span> 
+        </div>
+        <div  className={`${classes.progressButton}`}  onClick={handleReset} style={progressStyles}>
+      <span>Reset</span>
+        </div>
         <div className={classes.actions}>
-          {!showDetails ? (
-            <>
-              <input
-                type="password"
-                placeholder="Enter password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button onClick={showDetailsHandler}>Show Details</button>
-            </>
-          ) : (
-            <button onClick={() => router.push("/" + props.id)}>Go to Details</button>
-          )}
+          <button  onClick={showDetailsHandler}>Show Details</button>
         </div>
       </Card>
     </li>

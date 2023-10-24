@@ -8,9 +8,9 @@ function MeetupDetail(props){
             src={props.image} 
             alt={props.title}
             />
-        <h1>{props.title}</h1>
-         <address>{props.address}</address>
-         <p>{props.description}</p>
+        <h1>Dua Title : {props.title}</h1>
+         <address>Dua Meaning : {props.address}</address>
+         <p>Description : {props.description}</p>
      </section>
      )
      
