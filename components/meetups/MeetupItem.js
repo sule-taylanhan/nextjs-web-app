@@ -11,7 +11,7 @@ function MeetupItem(props) {
   const [showDetails, setShowDetails] = useState(false);
 
   function showDetailsHandler() {
-    if (password === 'test') { // Replace 'test' with your desired password
+    if (password === 'recep') { // Replace 'test' with your desired password
       setShowDetails(true);
     } else {
       alert('Incorrect password. Details cannot be shown.');
