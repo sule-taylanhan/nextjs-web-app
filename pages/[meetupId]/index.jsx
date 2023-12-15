@@ -44,7 +44,7 @@ export async function getStaticPaths(){
 export async function getStaticProps(context){
     //fetch data for a single meetup
     const meetupId = context.params.meetupId;
-    const client = await MongoClient.connect("mongodb+srv://rcptay:C41Pc9x7JbT5wefW@cluster0.sv3akhd.mongodb.net/?retryWrites=true&w=majority");
+    const client = await MongoClient.connect("mongodb+srv://rcptay:gcdLc2efFKueFW2M@cluster0.dbcix6t.mongodb.net/nextApp?retryWrites=true&w=majority");
     const db = client.db();
     const meetupsCollection = db.collection('nextApp'); 
     const selectedMeetup = await meetupsCollection.findOne({
