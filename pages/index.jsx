@@ -36,8 +36,12 @@ function HomePage(props) {
 
 export async function getStaticProps() {  //should wait until data coming from server. this function using only for static generation . will not never  execute their machine for  end users 
     // fetch dtat from an API;
-const client = await MongoClient.connect(
-    "mongodb+srv://rcptay:mongodB-1983@nextjsapp.8efe9pg.mongodb.net/nextApp?retryWrites=true&w=majority");
+
+
+    const client = await MongoClient.connect("mongodb+srv://rcptay:gcdLc2efFKueFW2M@cluster0.dbcix6t.mongodb.net/nextApp?retryWrites=true&w=majority")
+
+
+
 const db = client.db();
 
 const meeetupsCollection = db.collection('nextApp'); 

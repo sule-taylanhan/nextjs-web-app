@@ -20,11 +20,17 @@ function MeetupDetails(props){
     )
 }
 export async function getStaticPaths(){
-    const client = await MongoClient.connect(
-        "mongodb+srv://rcptay:mongodB-1983@nextjsapp.8efe9pg.mongodb.net/nextApp?retryWrites=true&w=majority");
+
+
+    
+    const client = await MongoClient.connect("mongodb+srv://rcptay:gcdLc2efFKueFW2M@cluster0.dbcix6t.mongodb.net/nextApp?retryWrites=true&w=majority")
+
+
+
+
     const db = client.db();
     
-    const meeetupsCollection = db.collection('nextApp'); 
+    const meeetupsCollection = db.collection("nextApp"); 
     const meetups = await meeetupsCollection.find({},{_id:1}).toArray();
     client.close();
     return {
@@ -38,8 +44,7 @@ export async function getStaticPaths(){
 export async function getStaticProps(context){
     //fetch data for a single meetup
     const meetupId = context.params.meetupId;
-    const client = await MongoClient.connect(
-        "mongodb+srv://rcptay:mongodB-1983@nextjsapp.8efe9pg.mongodb.net/nextApp?retryWrites=true&w=majority");
+    const client = await MongoClient.connect("mongodb+srv://rcptay:C41Pc9x7JbT5wefW@cluster0.sv3akhd.mongodb.net/?retryWrites=true&w=majority");
     const db = client.db();
     const meetupsCollection = db.collection('nextApp'); 
     const selectedMeetup = await meetupsCollection.findOne({
