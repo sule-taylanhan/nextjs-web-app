@@ -13,7 +13,7 @@ async function handler(req,res) {
     const {title,image,adress,description} = data; // these are our incoming requests body
     
     //and then we can store them in database
-    const client = await MongoClient.connect("mongodb+srv://rcptay:gcdLc2efFKueFW2M@cluster0.dbcix6t.mongodb.net/nextApp?retryWrites=true&w=majority")
+    const client = await MongoClient.connect("mongodb+srv://rcptay:gcdLc2efFKueFW2M@cluster0.dbcix6t.mongodb.net/nextApp?retryWrites=true&w=majority");
 
 
 
