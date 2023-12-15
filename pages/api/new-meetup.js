@@ -15,7 +15,7 @@ async function handler(req,res) {
     //and then we can store them in database
     const client = await MongoClient.connect("mongodb+srv://rcptay:mongodB-1983@nextjsapp.8efe9pg.mongodb.net/nextApp?retryWrites=true&w=majority");
     const db = client.db();
-    const meeetupsCollection = db.collection('nextApp'); // we can give any name for the collection
+    const meeetupsCollection = db.collection('nextApp'); // we can give any name for the collection !
     const result = await meeetupsCollection.insertOne(data);
     // console.log(result)
     client.close();
